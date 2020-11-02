@@ -1,0 +1,20 @@
+package com.orange.lo.sample.mqtt2dis.dis;
+
+import com.bigdata.dis.sdk.DIS;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+class DISConfigTest {
+
+    @Test
+    void shouldCorrectlyCreateDis() {
+        DISProperties disPropertiesStub = new DISProperties();
+        disPropertiesStub.setAsk("sdcs");
+        disPropertiesStub.setSk("fdfdf");
+        DISConfig disConfig = new DISConfig(disPropertiesStub);
+
+        DIS dis = disConfig.dis();
+        assertNotNull(dis);
+    }
+}

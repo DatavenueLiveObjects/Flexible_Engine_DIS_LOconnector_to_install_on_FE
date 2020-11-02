@@ -1,0 +1,29 @@
+lo-mqtt:
+  hostname: liveobjects.orange-business.com
+  username: application
+  api-key: YOUR_API_KEY
+  topics:
+    - MESSAGES_TOPIC_1
+    - MESSAGES_TOPIC_2
+  recovery-interval: 10000
+  completion-timeout: 20000
+  connection-timeout: 30000
+  qos: 1
+  keep-alive-interval-seconds: 30  
+
+flexible-engine:
+  dis:
+    endpoint: https://dis.eu-west-0.prod-cloud-ocb.orange-business.com
+    ask: YOUR_ASK_KEY
+    sk: YOUR_SK_KEY
+    projectId: YOUR_PROJECT_ID
+    region: YOUR_REGION
+    stream-name: YOUR_STREAM_NAME
+    message-batch-size: 10
+    message-sending-fixed-delay: 1000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, beans

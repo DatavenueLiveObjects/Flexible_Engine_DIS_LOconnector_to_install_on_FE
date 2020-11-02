@@ -1,0 +1,3 @@
+COMPONENT                               | VERSION       | LICENCE        | URL
+----------------------------------------------------------------------------------------------------------------------------------------------
+Spring Boot                             | 2.3.4.RELEASE | Apache License | Version 2.0, https://www.apache.org/licenses/LICENSE-2.0
