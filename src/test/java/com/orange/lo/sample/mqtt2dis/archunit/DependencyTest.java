@@ -9,7 +9,7 @@ import com.tngtech.archunit.library.DependencyRules;
 import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices;
 
 @AnalyzeClasses(
-        packages = "com.orange.lo.sample.lo2iothub",
+        packages = "com.orange.lo.sample.mqtt2dis",
         importOptions = {
                 ImportOption.DoNotIncludeTests.class,
                 ImportOption.DoNotIncludeJars.class
@@ -19,7 +19,7 @@ class DependencyTest {
 
     @ArchTest
     void shouldNotHaveCyclicalDependenciesBetweenClasses(JavaClasses classes) {
-        slices().matching("com.orange.lo.sample.lo2iothub.(**)")
+        slices().matching("com.orange.lo.sample.mqtt2dis.(**)")
                 .should().beFreeOfCycles()
                 .check(classes);
     }
