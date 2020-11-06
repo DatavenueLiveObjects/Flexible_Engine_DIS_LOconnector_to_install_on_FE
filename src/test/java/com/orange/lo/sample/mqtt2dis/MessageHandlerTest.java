@@ -45,7 +45,7 @@ class MessageHandlerTest {
     @Test
     void shouldAddMessageToQueueAndIncrementReceivedEventsCountWhenMessageArrives() {
         String message = "hello world";
-        messageHandler.handleMessage(message);
+        messageHandler.onMessage(message);
 
         assertEquals(1, messageQueueStub.size());
         verify(evtReceived, times(1)).increment();
@@ -63,7 +63,7 @@ class MessageHandlerTest {
     void shouldCallDISMessageSenderAndSendAllMessagesWhenMessageQueueIsNoTEmpty() {
         String message = "hello world";
 
-        messageHandler.handleMessage(message);
+        messageHandler.onMessage(message);
         messageHandler.send();
 
         assertEquals(0, messageQueueStub.size());

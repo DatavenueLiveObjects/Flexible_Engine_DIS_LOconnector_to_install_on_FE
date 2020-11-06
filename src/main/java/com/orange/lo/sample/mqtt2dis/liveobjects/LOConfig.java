@@ -14,22 +14,22 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.orange.lo.LOApiClient;
-import com.orange.lo.LOApiClientParameters;
-import com.orange.lo.mqtt.DataManagementMqtt;
-import com.orange.lo.sample.mqtt2dis.MessageHandler;
+import com.orange.lo.sdk.LOApiClient;
+import com.orange.lo.sdk.LOApiClientParameters;
+import com.orange.lo.sdk.mqtt.DataManagementMqtt;
+import com.orange.lo.sdk.mqtt.DataManagementMqttCallback;
 
 @Configuration
 public class LOConfig {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     private final LOProperties loProperties;
-    private final MessageHandler messageHandler;
+    private final DataManagementMqttCallback callback;
 
-    public LOConfig(LOProperties loProperties, MessageHandler messageHandler) {
+    public LOConfig(LOProperties loProperties, DataManagementMqttCallback callback) {
         LOGGER.info("Initializing LOConfig");
         this.loProperties = loProperties;
-        this.messageHandler = messageHandler;
+        this.callback = callback;
     }
 
     @Bean
@@ -48,7 +48,7 @@ public class LOConfig {
                 .username(loProperties.getUsername())
                 .apiKey(loProperties.getApiKey())
                 .topics(loProperties.getTopics())
-                .dataManagementMqttCallback(messageHandler::handleMessage)
+                .dataManagementMqttCallback(callback)
                 .build();
     }
 }

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
+import com.orange.lo.sdk.mqtt.DataManagementMqttCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -24,7 +25,7 @@ import com.orange.lo.sample.mqtt2dis.utils.Counters;
 import io.micrometer.core.instrument.Counter;
 
 @Component
-public class MessageHandler {
+public class MessageHandler implements DataManagementMqttCallback {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
@@ -34,14 +35,15 @@ public class MessageHandler {
     private final Counter evtReceived;
 
     public MessageHandler(DISMessageSender disMessageSender, DISProperties disProperties, Queue<String> messageQueue,
-                            Counters counters) {
+                          Counters counters) {
         this.disMessageSender = disMessageSender;
         this.disProperties = disProperties;
         this.messageQueue = messageQueue;
         this.evtReceived = counters.evtReceived();
     }
 
-    public void handleMessage(String message) {
+    @Override
+    public void onMessage(String message) {
         evtReceived.increment();
         messageQueue.add(message);
     }

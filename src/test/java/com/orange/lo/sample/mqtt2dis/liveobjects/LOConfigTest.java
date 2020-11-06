@@ -1,7 +1,8 @@
 package com.orange.lo.sample.mqtt2dis.liveobjects;
 
-import com.orange.lo.LOApiClientParameters;
+
 import com.orange.lo.sample.mqtt2dis.MessageHandler;
+import com.orange.lo.sdk.LOApiClientParameters;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,7 +12,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(MockitoExtension.class)
 class LOConfigTest {
