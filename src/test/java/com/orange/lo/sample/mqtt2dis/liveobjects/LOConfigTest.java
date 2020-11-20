@@ -1,7 +1,7 @@
 package com.orange.lo.sample.mqtt2dis.liveobjects;
 
-import com.orange.lo.LOApiClientParameters;
 import com.orange.lo.sample.mqtt2dis.MessageHandler;
+import com.orange.lo.sdk.LOApiClientParameters;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -14,9 +14,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.orange.lo.LOApiClient;
-import com.orange.lo.LOApiClientParameters;
-import com.orange.lo.mqtt.DataManagementMqtt;
+import com.orange.lo.sdk.LOApiClient;
+import com.orange.lo.sdk.LOApiClientParameters;
+import com.orange.lo.sdk.mqtt.DataManagementMqtt;
 import com.orange.lo.sample.mqtt2dis.MessageHandler;
 
 @Configuration

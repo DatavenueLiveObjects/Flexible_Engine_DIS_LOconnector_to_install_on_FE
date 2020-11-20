@@ -29,7 +29,7 @@
     	<dependency>
 	    	<groupId>com.github.DatavenueLiveObjects</groupId>
 	    	<artifactId>FIFO_SDK_LiveObjects</artifactId>
-	    	<version>-SNAPSHOT</version>
+	    	<version>v1.0.0</version>
 		</dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -133,7 +133,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>install-external-non-maven2-jar</id>
+                        <id>install-dis-sdk-jar</id>
                         <phase>clean</phase>
                         <configuration>
                             <repositoryLayout>default</repositoryLayout>
@@ -149,7 +149,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>install-external-non-maven3-jar</id>
+                        <id>install-java-sdk-core-jar</id>
                         <phase>clean</phase>
                         <configuration>
                             <repositoryLayout>default</repositoryLayout>
