@@ -1,6 +1,6 @@
 package com.orange.lo.sample.mqtt2dis.dis;
 
-import com.bigdata.dis.sdk.DIS;
+import com.huaweicloud.dis.DIS;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
