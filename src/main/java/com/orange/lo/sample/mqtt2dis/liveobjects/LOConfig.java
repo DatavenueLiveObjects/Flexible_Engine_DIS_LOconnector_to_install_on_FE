@@ -14,10 +14,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.orange.lo.sample.mqtt2dis.MessageHandler;
 import com.orange.lo.sdk.LOApiClient;
 import com.orange.lo.sdk.LOApiClientParameters;
-import com.orange.lo.sdk.mqtt.DataManagementMqtt;
-import com.orange.lo.sample.mqtt2dis.MessageHandler;
+import com.orange.lo.sdk.fifomqtt.DataManagementFifo;
 
 @Configuration
 public class LOConfig {
@@ -37,8 +37,8 @@ public class LOConfig {
         LOGGER.debug("Initializing LOApiClient");
         LOApiClientParameters parameters = loApiClientParameters();
         LOApiClient loApiClient = new LOApiClient(parameters);
-        DataManagementMqtt dataManagementMqtt = loApiClient.getDataManagementMqtt();
-        dataManagementMqtt.subscribe();
+        DataManagementFifo dataManagementFifo = loApiClient.getDataManagementFifo();
+        dataManagementFifo.subscribe();
         return loApiClient;
     }
 

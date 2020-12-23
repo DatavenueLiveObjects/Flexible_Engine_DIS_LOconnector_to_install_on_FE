@@ -42,6 +42,6 @@ class LOConfigTest {
         assertEquals(loPropertiesStub.getApiKey(), parameters.getApiKey());
         assertEquals(loPropertiesStub.getHostname(), parameters.getHostname());
         assertEquals(loPropertiesStub.getTopics(), parameters.getTopics());
-        assertNotNull(parameters.getDataManagementMqttCallback());
+        assertNotNull(parameters.getDataManagementFifoCallback());
     }
 }
