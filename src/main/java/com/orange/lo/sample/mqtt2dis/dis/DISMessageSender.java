@@ -72,8 +72,9 @@ public class DISMessageSender {
         }        
         
         counters.evtFailed().increment(putRecordsResult.getFailedRecordCount().get());
-        counters.evtSent().increment(putRecordsResult.getRecords().size() - putRecordsResult.getFailedRecordCount().get());
-        
+        int recordsSent = putRecordsResult.getRecords().size() - putRecordsResult.getFailedRecordCount().get();
+        counters.evtSent().increment(recordsSent);
+
         if (putRecordsResult.getFailedRecordCount().get() > 0) {
         	for (PutRecordsResultEntry putRecordsResultEntry : putRecordsResult.getRecords()) {
         		if (!StringUtils.isNullOrEmpty(putRecordsResultEntry.getErrorCode())) {
