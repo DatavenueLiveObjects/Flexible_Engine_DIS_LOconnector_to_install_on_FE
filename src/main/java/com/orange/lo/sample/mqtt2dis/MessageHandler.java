@@ -54,12 +54,12 @@ public class MessageHandler {
             while (!messageQueue.isEmpty()) {
                 messageBatch.add(messageQueue.poll());
                 if (messageBatch.size() == disProperties.getMessageBatchSize()) {
-                    disMessageSender.send(new ArrayList<>(messageBatch));
+                    disMessageSender.send(messageBatch);
                     messageBatch.clear();
                 }
             }
             if (!messageBatch.isEmpty()) {
-                disMessageSender.send(new ArrayList<>(messageBatch));
+                disMessageSender.send(messageBatch);
             }
         }
     }

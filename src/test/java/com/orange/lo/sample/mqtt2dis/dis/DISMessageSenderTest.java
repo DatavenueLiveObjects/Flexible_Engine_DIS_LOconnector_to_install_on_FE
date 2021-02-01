@@ -2,7 +2,6 @@ package com.orange.lo.sample.mqtt2dis.dis;
 
 import com.bigdata.dis.data.iface.request.PutRecordsRequest;
 import com.bigdata.dis.data.iface.response.PutRecordsResult;
-import com.bigdata.dis.data.iface.response.PutRecordsResultEntry;
 import com.bigdata.dis.sdk.DIS;
 import com.orange.lo.sample.mqtt2dis.utils.Counters;
 
@@ -50,7 +49,7 @@ class DISMessageSenderTest {
     	when(counters.evtSent()).thenReturn(evtSent);
         when(disClient.putRecords(any(PutRecordsRequest.class))).thenReturn(putRecordsResult);
         when(putRecordsResult.getFailedRecordCount()).thenReturn(new AtomicInteger(0));
-        when(putRecordsResult.getRecords()).thenReturn(new ArrayList<PutRecordsResultEntry>());
+        when(putRecordsResult.getRecords()).thenReturn(new ArrayList<>());
         this.disMessageSender = new DISMessageSender(disProperties, disClient, counters);
     }
 
