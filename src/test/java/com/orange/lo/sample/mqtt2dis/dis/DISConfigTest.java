@@ -12,6 +12,8 @@ class DISConfigTest {
         DISProperties disPropertiesStub = new DISProperties();
         disPropertiesStub.setAsk("sdcs");
         disPropertiesStub.setSk("fdfdf");
+        disPropertiesStub.setProjectId("jeiksdk");
+        disPropertiesStub.setRegion("asdasdasd");
         DISConfig disConfig = new DISConfig(disPropertiesStub);
 
         DIS dis = disConfig.dis();

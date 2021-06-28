@@ -1,24 +1,13 @@
 package com.orange.lo.sample.mqtt2dis;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-
-import com.bigdata.dis.data.iface.request.PutRecordsRequest;
-import com.bigdata.dis.data.iface.request.PutRecordsRequestEntry;
-import com.bigdata.dis.data.iface.response.PutRecordsResult;
-import com.bigdata.dis.sdk.DIS;
+import com.huaweicloud.dis.DIS;
+import com.huaweicloud.dis.iface.data.request.PutRecordsRequest;
+import com.huaweicloud.dis.iface.data.request.PutRecordsRequestEntry;
+import com.huaweicloud.dis.iface.data.response.PutRecordsResult;
+import com.orange.lo.sample.mqtt2dis.dis.DISMessageSender;
+import com.orange.lo.sample.mqtt2dis.dis.DISProperties;
+import com.orange.lo.sample.mqtt2dis.utils.Counters;
+import io.micrometer.core.instrument.Counter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,11 +17,18 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.orange.lo.sample.mqtt2dis.dis.DISMessageSender;
-import com.orange.lo.sample.mqtt2dis.dis.DISProperties;
-import com.orange.lo.sample.mqtt2dis.utils.Counters;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
-import io.micrometer.core.instrument.Counter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class MessageHandlerTest {
