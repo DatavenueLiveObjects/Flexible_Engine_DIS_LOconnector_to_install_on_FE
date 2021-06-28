@@ -70,14 +70,12 @@
                     <artifactId>log4j-jcl</artifactId>
                 </exclusion>
             </exclusions>
-
         </dependency>
-
-<dependency>
-<groupId>com.amazonaws</groupId>
-<artifactId>aws-java-sdk-core</artifactId>
-<version>1.11.908</version>
-</dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-core</artifactId>
+            <version>1.11.908</version>
+        </dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
@@ -124,60 +122,6 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <arguments>-Prelease</arguments>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>install-dis-iface-jar</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <repositoryLayout>default</repositoryLayout>
-                            <groupId>com.bigdata.dis</groupId>
-                            <artifactId>dis-data-iface</artifactId>
-                            <version>1.2.2</version>
-                            <file>${project.basedir}/libs/dis-data-iface-1.2.2.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-dis-sdk-jar</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <repositoryLayout>default</repositoryLayout>
-                            <groupId>com.bigdata.dis</groupId>
-                            <artifactId>dis-sdk</artifactId>
-                            <version>1.2.2</version>
-                            <file>${project.basedir}/libs/dis-sdk-1.2.2.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-java-sdk-core-jar</id>
-                        <phase>clean</phase>
-                        <configuration>
-                            <repositoryLayout>default</repositoryLayout>
-                            <groupId>com.cloud.sdk</groupId>
-                            <artifactId>java-sdk-core</artifactId>
-                            <version>2.0.1</version>
-                            <file>${project.basedir}/libs/java-sdk-core-2.0.1.jar</file>
-                            <packaging>jar</packaging>
-                            <generatePom>true</generatePom>
-                        </configuration>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
