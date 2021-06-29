@@ -43,11 +43,6 @@
             <groupId>com.huaweicloud.dis</groupId>
             <artifactId>huaweicloud-sdk-java-dis</artifactId>
             <version>1.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.huaweicloud.dis</groupId>
-            <artifactId>huaweicloud-sdk-java-dis</artifactId>
-            <version>1.3.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework</groupId>
