@@ -17,6 +17,8 @@ import java.util.List;
 @ConfigurationProperties(prefix = "lo-mqtt")
 public class LOProperties {
 
+	private static final String CONNECTOR_TYPE = "LO_FE_DIS_ADAPTER";
+	
     private String hostname;
     private String username;
     private String apiKey;
@@ -29,6 +31,10 @@ public class LOProperties {
 
     public LOProperties() {
         this.topics = new ArrayList<>();
+    }
+    
+    public String getConnectorType() {
+        return CONNECTOR_TYPE;
     }
 
     public void setHostname(String hostname) {

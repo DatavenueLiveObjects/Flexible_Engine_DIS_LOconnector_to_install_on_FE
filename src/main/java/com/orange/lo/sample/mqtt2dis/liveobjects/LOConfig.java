@@ -7,8 +7,13 @@
 
 package com.orange.lo.sample.mqtt2dis.liveobjects;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandles;
 
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -38,7 +43,7 @@ public class LOConfig {
         LOApiClientParameters parameters = loApiClientParameters();
         LOApiClient loApiClient = new LOApiClient(parameters);
         DataManagementFifo dataManagementFifo = loApiClient.getDataManagementFifo();
-        dataManagementFifo.subscribe();
+        dataManagementFifo.connectAndSubscribe();
         return loApiClient;
     }
 
@@ -49,6 +54,30 @@ public class LOConfig {
                 .apiKey(loProperties.getApiKey())
                 .topics(loProperties.getTopics())
                 .dataManagementMqttCallback(messageHandler::handleMessage)
+                .connectorType(loProperties.getConnectorType())
+                .connectorVersion(getConnectorVersion())
                 .build();
     }
+    
+    private String getConnectorVersion() {
+    	MavenXpp3Reader reader = new MavenXpp3Reader();
+        Model model = null;
+        try {			
+	        if ((new File("pom.xml")).exists()) {
+	          model = reader.read(new FileReader("pom.xml"));
+	        } else {
+	          model = reader.read(
+	            new InputStreamReader(
+	            	LOConfig.class.getResourceAsStream(
+	                "/META-INF/maven/com.orange.lo.sample/mqtt2dis/pom.xml"
+	              )
+	            )
+	          );
+	        }
+	        return model.getVersion().replace(".", "_");
+        } catch (Exception e) {
+			return "";
+		}
+    }
+    
 }
