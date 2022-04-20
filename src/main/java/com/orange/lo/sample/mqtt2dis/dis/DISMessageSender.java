@@ -7,13 +7,13 @@
 
 package com.orange.lo.sample.mqtt2dis.dis;
 
+import com.huaweicloud.dis.core.util.StringUtils;
 import com.huaweicloud.dis.iface.data.request.PutRecordsRequest;
 import com.huaweicloud.dis.iface.data.request.PutRecordsRequestEntry;
 import com.huaweicloud.dis.iface.data.response.PutRecordsResult;
 import com.huaweicloud.dis.iface.data.response.PutRecordsResultEntry;
 import com.huaweicloud.dis.DIS;
 import com.huaweicloud.dis.exception.DISClientException;
-import com.amazonaws.util.StringUtils;
 import com.orange.lo.sample.mqtt2dis.utils.Counters;
 
 import org.slf4j.Logger;

@@ -27,6 +27,7 @@
 
 # Idea
 .idea
+*.iml
 
 # local
 application-dev.yml
@@ -36,3 +37,4 @@ hs_err_pid*
 
 # dis libs to install by maven
 !/libs/*.jar
+/*/*.lck
