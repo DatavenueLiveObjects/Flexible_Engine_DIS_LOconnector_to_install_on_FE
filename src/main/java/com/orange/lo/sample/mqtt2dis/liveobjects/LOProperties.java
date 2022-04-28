@@ -27,7 +27,8 @@ public class LOProperties {
     private int completionTimeout;
     private int connectionTimeout;
     private int qos;
-    private int keepAliveIntervalSeconds;
+    private String mqttPersistenceDir;
+	private int keepAliveIntervalSeconds;
 
     public LOProperties() {
         this.topics = new ArrayList<>();
@@ -108,6 +109,14 @@ public class LOProperties {
     public void setKeepAliveIntervalSeconds(int keepAliveIntervalSeconds) {
         this.keepAliveIntervalSeconds = keepAliveIntervalSeconds;
     }
+    
+    public String getMqttPersistenceDir() {
+		return mqttPersistenceDir;
+	}
+
+	public void setMqttPersistenceDir(String mqttPersistenceDir) {
+		this.mqttPersistenceDir = mqttPersistenceDir;
+	}
 
     @Override
     public String toString() {
@@ -121,6 +130,7 @@ public class LOProperties {
                 ", connectionTimeout=" + connectionTimeout +
                 ", qos=" + qos +
                 ", keepAliveIntervalSeconds=" + keepAliveIntervalSeconds +                
+                ", mqttPersistenceDir=" + mqttPersistenceDir +
                 '}';
     }
 }

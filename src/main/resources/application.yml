@@ -9,6 +9,7 @@ lo-mqtt:
   completion-timeout: 20000
   connection-timeout: 30000
   qos: 1
+  mqtt-persistence-dir: ${basedir:.}/temp/
   keep-alive-interval-seconds: 30
 
 flexible-engine:

@@ -38,6 +38,7 @@ class LOConfigTest {
         this.loPropertiesStub.setApiKey(API_KEY);
         this.loPropertiesStub.setHostname(URI);
         this.loPropertiesStub.setTopics(TOPICS);
+        this.loPropertiesStub.setMqttPersistenceDir("/tmp");
         this.loConfig = new LOConfig(loPropertiesStub, messageHandler);
     }
 
