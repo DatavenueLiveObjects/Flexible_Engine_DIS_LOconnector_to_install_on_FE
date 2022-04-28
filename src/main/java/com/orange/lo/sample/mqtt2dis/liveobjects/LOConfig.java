@@ -54,6 +54,7 @@ public class LOConfig {
                 .apiKey(loProperties.getApiKey())
                 .topics(loProperties.getTopics())
                 .dataManagementMqttCallback(messageHandler::handleMessage)
+                .mqttPersistenceDataDir(loProperties.getMqttPersistenceDir())
                 .connectorType(loProperties.getConnectorType())
                 .connectorVersion(getConnectorVersion())
                 .build();

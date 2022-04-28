@@ -7,8 +7,8 @@
 
 package com.orange.lo.sample.mqtt2dis.dis;
 
-import com.bigdata.dis.sdk.DIS;
-import com.bigdata.dis.sdk.DISClientBuilder;
+import com.huaweicloud.dis.DIS;
+import com.huaweicloud.dis.DISClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;

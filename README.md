@@ -32,7 +32,7 @@ In order to run the connector you need to have:
 ## Configuration
 
 ### Connector
-All configuration can be found in **application.yaml** file located in src/main/resources
+All configuration can be found in **application.yaml** file located in src/main/resources (in source distribution) or conf (in release zip).
 
 ```
 1     lo-mqtt:
@@ -128,16 +128,24 @@ Size of batch
 How often messages will be sent to DIS
 
 ### Logging
-Logging configuration can be found in **logback.xml** file located in src/main/resources. You can find more information about how to configure your logs [here](http://logback.qos.ch/manual/configuration.html)
+Logging configuration can be found in **logback.xml** file located in src/main/resources or conf. You can find more information about how to configure your logs [here](http://logback.qos.ch/manual/configuration.html)
 
 
 ### Installation
 
 You can deploy this connector wherever you want (local server, cloud provider etc.)
 
+### From release
+
+A zip file containing the release can be found at https://github.com/DatavenueLiveObjects/Flexible_Engine_DIS_LOconnector_to_install_on_FE/releases
+
 #### Build
 
-Build the JAR file using command:
+Alternatively, you can build a JAR file using command:
 ```
 mvn clean package
+```
+Or a release package zip:
+```
+mvn clean package -Prelease
 ```
