@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package com.orange.lo.sample.mqtt2dis;
+package com.orange.lo.sample.mqtt2dis.liveobjects;
 
 import com.huaweicloud.dis.DIS;
 import com.huaweicloud.dis.iface.data.request.PutRecordsRequest;
@@ -13,6 +13,7 @@ import com.huaweicloud.dis.iface.data.request.PutRecordsRequestEntry;
 import com.huaweicloud.dis.iface.data.response.PutRecordsResult;
 import com.orange.lo.sample.mqtt2dis.dis.DISMessageSender;
 import com.orange.lo.sample.mqtt2dis.dis.DISProperties;
+import com.orange.lo.sample.mqtt2dis.liveobjects.MessageHandler;
 import com.orange.lo.sample.mqtt2dis.utils.Counters;
 import io.micrometer.core.instrument.Counter;
 import org.junit.jupiter.api.BeforeEach;

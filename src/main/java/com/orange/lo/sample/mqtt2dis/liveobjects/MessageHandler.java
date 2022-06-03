@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-package com.orange.lo.sample.mqtt2dis;
+package com.orange.lo.sample.mqtt2dis.liveobjects;
 
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;

@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 @AnalyzeClasses(
-        packages = "com.orange.lo.sample.lo2iothub",
+        packages = "com.orange.lo.sample.mqtt2dis",
         importOptions = {
                 ImportOption.DoNotIncludeTests.class,
                 ImportOption.DoNotIncludeJars.class
@@ -43,6 +43,7 @@ class NamingConventionTest {
     void springBootApplicationAnnotatedClassesEndWithApplication2(JavaClasses classes) {
         classes().that().areAssignableTo(Exception.class)
                 .should().haveSimpleNameEndingWith("Exception")
+                .allowEmptyShould(true)
                 .check(classes);
     }
 }
