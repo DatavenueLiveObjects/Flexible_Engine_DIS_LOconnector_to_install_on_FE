@@ -49,7 +49,7 @@ class MessageHandlerTest {
     @Mock
     private DISProperties disProperties;
     @Mock
-    private Counter evtReceived;
+    private Counter mesasageReadCounter;
     @Mock
     private Counters counters;
     @Captor
@@ -59,7 +59,7 @@ class MessageHandlerTest {
 
     @BeforeEach
     void setUp() {
-        when(counters.evtReceived()).thenReturn(evtReceived);
+        when(counters.getMesasageReadCounter()).thenReturn(mesasageReadCounter);
         this.messageQueueStub = new ConcurrentLinkedQueue<>();
         this.messageHandler = new MessageHandler(disMessageSender, disProperties, messageQueueStub, counters);
     }
@@ -69,7 +69,7 @@ class MessageHandlerTest {
         messageHandler.handleMessage(MESSAGE);
 
         assertEquals(1, messageQueueStub.size());
-        verify(evtReceived, times(1)).increment();
+        verify(mesasageReadCounter, times(1)).increment();
     }
 
     @Test
@@ -108,12 +108,12 @@ class MessageHandlerTest {
     void shouldPassMessagesCorrectlyToDISClientWhenMessageQueueIsNoTEmpty() {
         DIS disClient = Mockito.mock(DIS.class);
         PutRecordsResult putRecordsResult = Mockito.mock(PutRecordsResult.class);
-        Counter evtAttempt = Mockito.mock(Counter.class);
-        Counter evtFailed = Mockito.mock(Counter.class);
-        Counter evtSent = Mockito.mock(Counter.class);
-        when(counters.evtAttempt()).thenReturn(evtAttempt);
-        when(counters.evtFailed()).thenReturn(evtFailed);
-        when(counters.evtSent()).thenReturn(evtSent);
+        Counter mesasageSentAttemptCounter = Mockito.mock(Counter.class);
+        Counter mesasageSentFailedCounter = Mockito.mock(Counter.class);
+        Counter mesasageSentCounter = Mockito.mock(Counter.class);
+        when(counters.getMesasageSentAttemptCounter()).thenReturn(mesasageSentAttemptCounter);
+        when(counters.getMesasageSentFailedCounter()).thenReturn(mesasageSentFailedCounter);
+        when(counters.getMesasageSentCounter()).thenReturn(mesasageSentCounter);
         when(disClient.putRecords(any(PutRecordsRequest.class))).thenReturn(putRecordsResult);
         when(putRecordsResult.getFailedRecordCount()).thenReturn(new AtomicInteger(0));
         when(putRecordsResult.getRecords()).thenReturn(new ArrayList<>());

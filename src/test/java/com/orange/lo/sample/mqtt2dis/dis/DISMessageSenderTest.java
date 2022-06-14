@@ -42,19 +42,19 @@ class DISMessageSenderTest {
     @Mock
     private Counters counters;
     @Mock
-    private Counter evtAttempt;
+    private Counter mesasageSentAttemptCounter;
     @Mock
-    private Counter evtFailed;
+    private Counter mesasageSentFailedCounter;
     @Mock
-    private Counter evtSent;
+    private Counter mesasageSentCounter;
     
     private DISMessageSender disMessageSender;
 
     @BeforeEach
     void setUp() {
-    	when(counters.evtAttempt()).thenReturn(evtAttempt);
-    	when(counters.evtFailed()).thenReturn(evtFailed);
-    	when(counters.evtSent()).thenReturn(evtSent);
+    	when(counters.getMesasageSentAttemptCounter()).thenReturn(mesasageSentAttemptCounter);
+    	when(counters.getMesasageSentFailedCounter()).thenReturn(mesasageSentFailedCounter);
+    	when(counters.getMesasageSentCounter()).thenReturn(mesasageSentCounter);
         when(disClient.putRecords(any(PutRecordsRequest.class))).thenReturn(putRecordsResult);
         when(putRecordsResult.getFailedRecordCount()).thenReturn(new AtomicInteger(0));
         when(putRecordsResult.getRecords()).thenReturn(new ArrayList<>());

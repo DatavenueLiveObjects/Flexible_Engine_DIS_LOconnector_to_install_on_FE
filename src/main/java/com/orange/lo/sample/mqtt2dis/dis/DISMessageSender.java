@@ -42,7 +42,7 @@ public class DISMessageSender {
     }
 
     public void send(List<String> messages) {
-    	counters.evtAttempt().increment(messages.size());
+    	counters.getMesasageSentAttemptCounter().increment(messages.size());
     	
         List<PutRecordsRequestEntry> putRecordsRequestEntryList = new ArrayList<>();
         for (String message : messages) {
@@ -62,18 +62,18 @@ public class DISMessageSender {
         try {
             putRecordsResult = disClient.putRecords(putRecordsRequest);
         } catch (DISClientException e) {
-        	counters.evtFailed().increment(messages.size());
+        	counters.getMesasageSentFailedCounter().increment(messages.size());
             LOGGER.error("Failed to get a response, please check params and retry. Error message [{}]", e.getMessage(), e);
             return;
         } catch (Exception e) {
-        	counters.evtFailed().increment(messages.size());
+        	counters.getMesasageSentFailedCounter().increment(messages.size());
             LOGGER.error("Unexpected exception {}", e.getMessage(), e);
             return;
         }        
         
-        counters.evtFailed().increment(putRecordsResult.getFailedRecordCount().get());
+        counters.getMesasageSentFailedCounter().increment(putRecordsResult.getFailedRecordCount().get());
         int recordsSent = putRecordsResult.getRecords().size() - putRecordsResult.getFailedRecordCount().get();
-        counters.evtSent().increment(recordsSent);
+        counters.getMesasageSentCounter().increment(recordsSent);
 
         if (putRecordsResult.getFailedRecordCount().get() > 0) {
         	for (PutRecordsResultEntry putRecordsResultEntry : putRecordsResult.getRecords()) {

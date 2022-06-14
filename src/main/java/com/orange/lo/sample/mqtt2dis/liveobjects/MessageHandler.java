@@ -31,18 +31,18 @@ public class MessageHandler {
     private final DISMessageSender disMessageSender;
     private final DISProperties disProperties;
     private final Queue<String> messageQueue;
-    private final Counter evtReceived;
+    private final Counter mesasageReadCounter;
 
     public MessageHandler(DISMessageSender disMessageSender, DISProperties disProperties, Queue<String> messageQueue,
                             Counters counters) {
         this.disMessageSender = disMessageSender;
         this.disProperties = disProperties;
         this.messageQueue = messageQueue;
-        this.evtReceived = counters.evtReceived();
+        this.mesasageReadCounter = counters.getMesasageReadCounter();
     }
 
     public void handleMessage(String message) {
-        evtReceived.increment();
+    	mesasageReadCounter.increment();
         messageQueue.add(message);
     }
 
