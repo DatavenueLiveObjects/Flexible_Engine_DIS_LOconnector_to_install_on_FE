@@ -167,7 +167,7 @@
                             </platforms>
                             <programs>
                                 <program>
-                                    <mainClass>com.orange.lo.sample.mqtt2dis.Application</mainClass>
+                                    <mainClass>com.orange.lo.sample.mqtt2dis.ConnectorApplication</mainClass>
                                     <id>app</id>
                                 </program>
                             </programs>
