@@ -28,3 +28,9 @@ management:
     web:
       exposure:
         include: info, health, metrics, beans, counters
+  endpoint:
+    health:
+      show-details: ALWAYS
+  health:
+    defaults:
+      enabled: false
