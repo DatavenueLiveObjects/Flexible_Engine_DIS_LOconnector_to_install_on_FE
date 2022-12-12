@@ -15,6 +15,12 @@ import com.tngtech.archunit.library.DependencyRules;
 
 import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices;
 
+import com.orange.lo.sample.mqtt2dis.modify.ModifyConfigurationService;
+
+import static com.tngtech.archunit.base.DescribedPredicate.not;
+import static com.tngtech.archunit.core.domain.JavaClass.Predicates.equivalentTo;
+import static com.tngtech.archunit.lang.conditions.ArchPredicates.are;
+
 @AnalyzeClasses(
         packages = "com.orange.lo.sample.mqtt2dis",
         importOptions = {
@@ -33,7 +39,8 @@ class DependencyTest {
 
     @ArchTest
     void noClassesShouldDependsOnUpperPackages(JavaClasses classes) {
-        DependencyRules.NO_CLASSES_SHOULD_DEPEND_UPPER_PACKAGES.check(classes);
+    	JavaClasses allExceptModifyConfigurationService = classes.that(are(not(equivalentTo(ModifyConfigurationService.class))));
+        DependencyRules.NO_CLASSES_SHOULD_DEPEND_UPPER_PACKAGES.check(allExceptModifyConfigurationService);
     }
 
 }
