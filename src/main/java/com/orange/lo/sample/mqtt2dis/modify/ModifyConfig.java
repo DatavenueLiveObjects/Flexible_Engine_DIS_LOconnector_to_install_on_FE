@@ -17,7 +17,7 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 public class ModifyConfig {
 
-	private static final String CONFIGURATION_FILE_NAME = "application.yaml";
+	private static final String CONFIGURATION_FILE_NAME = "application.yml";
 
 	@Bean
 	public File configurationFile() throws IOException {
