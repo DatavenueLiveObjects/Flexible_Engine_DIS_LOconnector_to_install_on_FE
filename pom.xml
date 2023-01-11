@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.orange.lo.sample</groupId>
     <artifactId>mqtt2dis</artifactId>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8</version>
     <name>Mqtt2FlexibleEngineDIS</name>
     <description>Connector between Live Object and Data Ingestion Service</description>
 
@@ -122,7 +122,7 @@
         <url>https://github.com/DatavenueLiveObjects/Flexible_Engine_DIS_LOconnector_to_install_on_FE</url>
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <tag>v1.0</tag>
+        <tag>v1.8</tag>
     </scm>
     <profiles>
         <profile>
