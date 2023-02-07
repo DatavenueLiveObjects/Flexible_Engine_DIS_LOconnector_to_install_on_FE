@@ -17,7 +17,7 @@ flexible-engine:
     endpoint: https://dis.eu-west-0.prod-cloud-ocb.orange-business.com
     ask: YOUR_ASK_KEY
     sk: YOUR_SK_KEY
-    projectId: YOUR_PROJECT_ID
+    project-id: YOUR_PROJECT_ID
     region: YOUR_REGION
     stream-name: YOUR_STREAM_NAME
     message-batch-size: 10
